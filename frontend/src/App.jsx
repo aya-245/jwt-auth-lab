@@ -4,7 +4,13 @@ import SignupPage from "./pages/SignupPage";
 import Homepage from "./pages/Homepage";
 import SignInPage from "./pages/SigninPage";
 import Dashboard from "./pages/Dashboard";
+import EntriesList from "./pages/EntriesList";
+import EntryDetails from "./pages/EntryDetails";
+import CreateEntry from "./pages/CreateEntry";
+import UpdateEntry from "./pages/Updateentry";
+import MyEntries from "./pages/myEntries";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 function App() {
   return (
     <div>
@@ -14,6 +20,11 @@ function App() {
         <Route path="/sign-up" element={<SignupPage />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+        <Route path="/entries" element={<EntriesList />} />
+        <Route path="/entries/my-entries" element={<ProtectedRoute><MyEntries /></ProtectedRoute>} />
+        <Route path="/entries/:entryId" element={<ProtectedRoute><EntryDetails /></ProtectedRoute>} />
+        <Route path="/entries/create" element={<ProtectedRoute><CreateEntry /></ProtectedRoute>} />
+        <Route path="/entries/:entryId/edit" element={<ProtectedRoute><UpdateEntry /></ProtectedRoute>} />
       </Routes>
     </div>
   );

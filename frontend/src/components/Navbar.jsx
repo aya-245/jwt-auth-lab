@@ -6,10 +6,13 @@ function Navbar() {
   return (
     <nav>
       <Link to='/'>Homepage</Link> 
+      <Link to='/entries'>Entries</Link>
       {user 
       ? 
       (<>
       <Link to='/dashboard'>Dashboard</Link>
+      <Link to='/entries/create'>Create Entry</Link>
+      <Link to='entries/my-entries'>My Entries</Link>
       <button onClick={logout}>Sign Out</button>
       </>) : 
       (<>

@@ -10,6 +10,8 @@ router.post('/', verifyToken, entriesController.createEntry)
 // read
 router.get('/', standardLimiter, entriesController.getAllEntries)
 
+router.get('/my-entries', verifyToken, entriesController.getMyEntries)
+
 // details
 router.get('/:entryId', verifyToken, validateObjectId, entriesController.getEntryById)
 

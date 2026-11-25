@@ -47,6 +47,17 @@ async function getEntryById(req, res){
 
 }
 
+async function getMyEntries(req, res) {
+    try {
+        const myEntries = await Entry.find({ owner: req.user._id })
+
+
+        res.status(200).json(myEntries)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 async function updateEntry(req, res){
     try{    
         const {title, entryBody, isPublic} = req.body
@@ -87,6 +98,7 @@ module.exports = {
     createEntry,
     getAllEntries,
     getEntryById,
+    getMyEntries,
     updateEntry,
     deleteEntry
 }
